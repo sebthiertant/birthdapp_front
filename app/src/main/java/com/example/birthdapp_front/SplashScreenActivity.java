@@ -2,10 +2,12 @@ package com.example.birthdapp_front;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
-public class SplashSreenActivity extends AppCompatActivity {
+@SuppressLint("CustomSplashScreen")
+public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
