@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">birthdapp_front</string>
+    <string name="prompt_username">Nom d'utilisateur</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="action_sign_in_short">Je ne sais pas</string>
+    <string name="action_sign_in">Se connecter</string>
+
+
+    <string name="invalid_password">Mot de passe incorrect</string>
+    <string name="error_field_required">Le champ ne dois pas être vide</string>
+    <string name="invalid_username">Nom d'utilisateur incorrect</string>
+
 </resources>
