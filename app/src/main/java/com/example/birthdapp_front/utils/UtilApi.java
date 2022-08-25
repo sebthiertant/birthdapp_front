@@ -19,7 +19,8 @@ import okhttp3.Response;
 public class UtilApi {
 
     public static final String URL_LOGIN = "http://10.0.2.2:8080/login";
-    public static final String CREATE_BIRTHDAY = "http://10.0.2.2:8080/users/%7Bid%7D/birthdays"; // Test maison pour supprimer l'erreur de compilation, mais que faire ici ?
+    public static final String CREATE_BIRTHDAY = "http://10.0.2.2:8080/users/{id}/birthdays"; // Test maison pour supprimer l'erreur de compilation, mais que faire ici ?
+
 
     public static OkHttpClient client = new OkHttpClient();
 
