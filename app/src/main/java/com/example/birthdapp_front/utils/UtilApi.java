@@ -21,6 +21,7 @@ public class UtilApi {
     public static final String URL_LOGIN = "http://10.0.2.2:8080/login";
     public static final String CREATE_BIRTHDAY = "http://10.0.2.2:8080/users/{id}/birthdays"; // Test maison pour supprimer l'erreur de compilation, mais que faire ici ?
 
+
     public static OkHttpClient client = new OkHttpClient();
 
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
