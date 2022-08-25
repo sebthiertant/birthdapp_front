@@ -6,6 +6,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.birthdapp_front.utils.Util;
+
 @SuppressLint("CustomSplashScreen")
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -14,9 +16,11 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         try {
-            startActivity(new Intent(this, ListActivity.class));
+          Util.getUser(this);
+          startActivity(new Intent(this, ListActivity.class));
         } catch (Exception e) {
-            e.getMessage();
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
         }
 
         finish();
