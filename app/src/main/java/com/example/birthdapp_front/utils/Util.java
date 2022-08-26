@@ -26,6 +26,7 @@ public class Util {
     private static final SimpleDateFormat FORMAT_INPUT = new SimpleDateFormat("dd/MM/yyyy");
 
     public static void setUser(Context context, String json) {
+        // call une fois authentifié
         context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE).edit().putString(USER, json).apply();
     }
 

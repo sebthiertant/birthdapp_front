@@ -18,8 +18,8 @@ import okhttp3.Response;
 
 public class UtilApi {
 
-    public static final String URL_LOGIN = "http://10.0.2.2:8080/login";
-    public static final String CREATE_BIRTHDAY = "http://10.0.2.2:8080/users/{id}/birthdays"; // Test maison pour supprimer l'erreur de compilation, mais que faire ici ?
+    public static final String URL_LOGIN = "http://10.0.2.2:8080/users/login";
+    public static final String CREATE_BIRTHDAY = "http://localhost:8080/users/{id}/birthdays"; // Test maison pour supprimer l'erreur de compilation, mais que faire ici ?
 
 
     public static OkHttpClient client = new OkHttpClient();
@@ -47,6 +47,8 @@ public class UtilApi {
 
     public static void post(String url, Map<String, String> map, final ApiCallback callback) {
 
+        System.out.println(url);
+
         MultipartBody.Builder requestBody = new MultipartBody.Builder().setType(MultipartBody.FORM);
         for (Map.Entry<String, String> entry : map.entrySet()) {
             requestBody.addFormDataPart(entry.getKey(), entry.getValue());
@@ -61,6 +63,7 @@ public class UtilApi {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
                 callback.fail("error");
+                e.printStackTrace();
             }
 
             @Override

@@ -1,5 +1,6 @@
 package com.example.birthdapp_front;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -12,6 +13,8 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.birthdapp_front.utils.ApiCallback;
 import com.example.birthdapp_front.utils.Util;
+import com.example.birthdapp_front.utils.UtilApi;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -62,14 +65,12 @@ public class LoginActivity  extends AppCompatActivity implements ApiCallback {
 
         mPasswordView.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                // TODO : appeler la méthode pour tenter le login
                 attemptLogin();
             }
             return false;
         });
 
         mLoginFormView.setOnClickListener(v -> {
-            // TODO : appeler la méthode pour tenter le login
             attemptLogin();
         });
     }
@@ -82,6 +83,7 @@ public class LoginActivity  extends AppCompatActivity implements ApiCallback {
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
+        Log.d("test", email + password);
         boolean cancel = false;
         View focusView = null;
 
@@ -111,9 +113,11 @@ public class LoginActivity  extends AppCompatActivity implements ApiCallback {
             map.put("password", password);
 
             // TODO : Appeler la méthode permettant de faire un appel API via POST
+            UtilApi.post(UtilApi.URL_LOGIN, map, LoginActivity.this);
 
 
-
+//            startActivity(new Intent(this, ListActivity.class));
+//            finish();
         }
     }
 
@@ -134,6 +138,10 @@ public class LoginActivity  extends AppCompatActivity implements ApiCallback {
     public void success(final String json) {
         handler.post(() -> {
             Log.d("lol", "success: " + json);
+            Util.setUser(this, json);
+
+            startActivity(new Intent(this, ListActivity.class));
+            finish();
             // TODO : Etablisser un comportement lors d'un success
             // TODO : Faites la redirection
         });

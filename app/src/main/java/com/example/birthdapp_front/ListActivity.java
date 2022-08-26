@@ -49,6 +49,7 @@ public class ListActivity extends AppCompatActivity implements ApiCallback {
         try {
             mUser = Util.getUser(this);
         } catch (Exception e) {
+            Log.d("lol", "onCreate: hahahhhahhahhah");
             startActivity(new Intent(this, LoginActivity.class));
             finish();
         }
